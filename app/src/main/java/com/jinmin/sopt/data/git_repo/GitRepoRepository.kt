@@ -1,5 +1,7 @@
 package com.jinmin.sopt.data.git_repo
 
+import retrofit2.Call
+/*
 class GitRepoRepository (){
     fun getRepoList() : List<GitRepoData>{
         return listOf(
@@ -21,4 +23,8 @@ class GitRepoRepository (){
             )
         )
     }
+}*/
+
+interface GitRepoRepository {
+    fun getRepos(login:String) : Call<List<GetGitRepoData>>
 }

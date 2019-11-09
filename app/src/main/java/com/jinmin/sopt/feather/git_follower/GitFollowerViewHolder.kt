@@ -17,14 +17,14 @@ class GitFollowerViewHolder (view: View) : RecyclerView.ViewHolder(view){
     val txtRvFollowerName : TextView = view.findViewById(R.id.txtRvFollowerName)
 
     fun bind(data : GitFollowerData){
-        txtRvFollowerId.text = data.id
+        txtRvFollowerId.text = data.login
         txtRvFollowerName.text = data.name
 
         ctnRvFollower.setOnClickListener {
             val context = it.context
 
             val intent = Intent(context, GitRepoActivity::class.java)
-            intent.putExtra("follower_id", data.id)
+            intent.putExtra("follower_login", data.login)
             context.startActivity(intent)
         }
     }

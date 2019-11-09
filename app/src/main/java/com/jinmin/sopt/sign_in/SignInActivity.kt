@@ -28,7 +28,7 @@ class SignInActivity : AppCompatActivity() {
             else{
                 //Toast.makeText(this,"로그인 성공 !",Toast.LENGTH_LONG).show()
                 val intent = Intent(this,GitFollowerActivity::class.java)
-                intent.putExtra("id",id)
+                intent.putExtra("login",id)
                 startActivity(intent)
             }
         }
