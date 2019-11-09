@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.jinmin.sopt.R
-import com.jinmin.sopt.data.git_follower.GitFollowerData
+import com.jinmin.sopt.data.git_follower.GetGitFollowerData
 
 class GitFollowerAdapter (private val context: Context) : RecyclerView.Adapter<GitFollowerViewHolder>(){
 
-    var data = listOf<GitFollowerData>()
+    var data : List<GetGitFollowerData> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GitFollowerViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.rv_item_follower,parent,false)
@@ -21,6 +21,7 @@ class GitFollowerAdapter (private val context: Context) : RecyclerView.Adapter<G
     }
 
     override fun onBindViewHolder(holder: GitFollowerViewHolder, position: Int) {
+
         holder.bind(data[position])
     }
 }

@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.jinmin.sopt.R
-import com.jinmin.sopt.data.git_repo.GitRepoData
+import com.jinmin.sopt.data.git_repo.GetGitRepoData
 
 class GitRepoAdapter (private val context: Context) : RecyclerView.Adapter<GitRepoViewHolder>(){
 
-    var data = listOf<GitRepoData>()
+    var data = listOf<GetGitRepoData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GitRepoViewHolder {
 

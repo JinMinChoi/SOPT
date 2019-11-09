@@ -5,6 +5,6 @@ data class GitRepoData(
     val desc : String,
     val language : String,
     val languageColor : Int?,
-    val profile : Int?,
-    val updated_at : String
+    val avatar_url : String?,
+    val updated_at : String?
 )

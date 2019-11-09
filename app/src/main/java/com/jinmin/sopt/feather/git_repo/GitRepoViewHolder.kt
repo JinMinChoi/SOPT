@@ -5,7 +5,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.jinmin.sopt.R
-import com.jinmin.sopt.data.git_repo.GitRepoData
+import com.jinmin.sopt.data.git_repo.GetGitRepoData
 
 class GitRepoViewHolder(view: View): RecyclerView.ViewHolder(view){
 
@@ -16,7 +16,8 @@ class GitRepoViewHolder(view: View): RecyclerView.ViewHolder(view){
     val txtRvItemLanguage : TextView = view.findViewById(R.id.txtRvItemLanguage)
     val txtRvItemUpdatedAt : TextView = view.findViewById(R.id.txtRvItemUpdatedAt)
 
-    fun bind(data: GitRepoData){
+    fun bind(data: GetGitRepoData){
+
         txtRvItemName.text = data.name
         txtRvItemDescription.text = data.desc
         txtRvItemLanguage.text = data.language

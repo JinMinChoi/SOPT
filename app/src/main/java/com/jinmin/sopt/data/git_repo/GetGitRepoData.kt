@@ -6,10 +6,10 @@ data class GetGitRepoData(
     @SerializedName("name")
     val name : String,
     @SerializedName("description")
-    val description : String,
+    val desc : String,
     @SerializedName("language")
     val language: String?,
-    @SerializedName("lauguageColor")
+    @SerializedName("lauguages_url")
     val lauguageColor : Int?,
     @SerializedName("avatar_url")
     val avatar_url : String?,
