@@ -12,12 +12,7 @@ import com.jinmin.sopt.R
 import com.jinmin.sopt.data.git_repo.GetGitRepoData
 import com.jinmin.sopt.data.git_repo.GetGitRepoRepo
 import com.jinmin.sopt.data.git_repo.GitRepoRepository
-import com.jinmin.sopt.data.git_user.GetGitUserRepo
-import com.jinmin.sopt.data.git_user.GetUserData
-import com.jinmin.sopt.data.git_user.GitUserRepository
-import kotlinx.android.synthetic.main.activity_git_follower.txtUserDescription
-import kotlinx.android.synthetic.main.activity_git_follower.txtUserId
-import kotlinx.android.synthetic.main.activity_git_follower.txtUserName
+import com.jinmin.sopt.feather.user_view.UserFragment
 import kotlinx.android.synthetic.main.activity_git_repo.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -25,7 +20,7 @@ import retrofit2.Response
 
 class GitRepoActivity : AppCompatActivity() {
     private lateinit var adapter: GitRepoAdapter
-    private val userRepository: GitUserRepository = GetGitUserRepo()
+
     private val gitRepoRepository : GitRepoRepository = GetGitRepoRepo()
     private var login = ""
 
@@ -35,26 +30,16 @@ class GitRepoActivity : AppCompatActivity() {
 
 
         login = intent.getStringExtra("follower_login")
+
         makeUser(login)
         makeRepo(login)
     }
 
     private fun makeUser(login : String){
-        userRepository.getUser(login).enqueue(object : Callback<GetUserData> {
-            override fun onFailure(call: Call<GetUserData>, t: Throwable) {
-                Log.e("sopt_error","error : $t")
-            }
-
-            override fun onResponse(call: Call<GetUserData>, response: Response<GetUserData>) {
-                if(response.isSuccessful){
-                    val user = response.body()!!
-
-                    txtUserId.text = user.login
-                    txtUserName.text = user.name
-                    txtUserDescription.text = user.bio
-                }
-            }
-        })
+        val userFragment = UserFragment.setLogin(login)
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.add(R.id.ctn_user_repo,userFragment)
+        transaction.commit()
     }
 
     private fun makeRepo(login: String){

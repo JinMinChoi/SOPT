@@ -4,6 +4,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.jinmin.sopt.R
 import com.jinmin.sopt.data.git_repo.GetGitRepoData
 
@@ -22,5 +23,10 @@ class GitRepoViewHolder(view: View): RecyclerView.ViewHolder(view){
         txtRvItemDescription.text = data.desc
         txtRvItemLanguage.text = data.language
         txtRvItemUpdatedAt.text = data.updated_at
+        Glide
+            .with(itemView)
+            .load(data.languageColor)
+            .placeholder(R.drawable.sopt_logo)
+            .into(imgRvItemLanguageColor)
     }
 }

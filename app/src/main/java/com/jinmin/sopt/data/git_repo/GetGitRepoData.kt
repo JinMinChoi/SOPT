@@ -10,7 +10,7 @@ data class GetGitRepoData(
     @SerializedName("language")
     val language: String?,
     @SerializedName("lauguages_url")
-    val lauguageColor : Int?,
+    val languageColor : String?,
     @SerializedName("avatar_url")
     val avatar_url : String?,
     @SerializedName("updated_at")

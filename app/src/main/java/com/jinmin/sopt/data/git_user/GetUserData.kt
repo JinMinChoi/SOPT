@@ -10,7 +10,7 @@ data class GetUserData(
     @SerializedName("login")
     val login : String,
     @SerializedName("bio")
-    val bio : String?,
+    val bio : String,
     @SerializedName("followers")
     val numOfFollowers : Int
 )

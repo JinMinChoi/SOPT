@@ -1,11 +1,11 @@
 package com.jinmin.sopt.feather.git_follower
 
 import android.content.Intent
-import android.net.Uri
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.jinmin.sopt.R
 import com.jinmin.sopt.data.git_follower.GetGitFollowerData
 import com.jinmin.sopt.feather.git_repo.GitRepoActivity
@@ -18,7 +18,13 @@ class GitFollowerViewHolder (view: View) : RecyclerView.ViewHolder(view){
     val txtRvFollowerName : TextView = view.findViewById(R.id.txtRvFollowerName)
 
     fun bind(data : GetGitFollowerData){
-        imgRvFollowerProfile.setImageURI(Uri.parse(data.avatar_url))
+
+        Glide
+            .with(itemView)
+            .load(data.avatar_url)
+            .placeholder(R.drawable.sopt_logo)
+            .into(imgRvFollowerProfile)
+
         txtRvFollowerId.text = data.login
         txtRvFollowerName.text = data.name
 

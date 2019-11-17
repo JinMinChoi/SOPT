@@ -1,4 +1,4 @@
-package com.jinmin.sopt.sign_in
+package com.jinmin.sopt.feather.sign_in
 
 import android.app.Activity
 import android.content.Intent
@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.jinmin.sopt.R
 import com.jinmin.sopt.feather.git_follower.GitFollowerActivity
-import com.jinmin.sopt.sign_up.SignUpActivity
+import com.jinmin.sopt.feather.sign_up.SignUpActivity
 import kotlinx.android.synthetic.main.activity_sign_in.*
 
 class SignInActivity : AppCompatActivity() {

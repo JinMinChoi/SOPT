@@ -12,9 +12,7 @@ import com.jinmin.sopt.R
 import com.jinmin.sopt.data.git_follower.GetGitFollowerData
 import com.jinmin.sopt.data.git_follower.GetGitFollowerRepo
 import com.jinmin.sopt.data.git_follower.GitFollowerRepository
-import com.jinmin.sopt.data.git_user.GetGitUserRepo
-import com.jinmin.sopt.data.git_user.GetUserData
-import com.jinmin.sopt.data.git_user.GitUserRepository
+import com.jinmin.sopt.feather.user_view.UserFragment
 import kotlinx.android.synthetic.main.activity_git_follower.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -23,8 +21,9 @@ import retrofit2.Response
 class GitFollowerActivity : AppCompatActivity() {
 
     private lateinit var adapter: GitFollowerAdapter
-    private val userRepository : GitUserRepository = GetGitUserRepo()
+
     private val followerRepository : GitFollowerRepository = GetGitFollowerRepo()
+
 
     private var login = ""
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,23 +38,11 @@ class GitFollowerActivity : AppCompatActivity() {
     }
 
     private fun makeUser(login : String){
-        userRepository.getUser(login).enqueue(object : Callback<GetUserData>{
-            override fun onFailure(call: Call<GetUserData>, t: Throwable) {
-                Log.e("sopt_error","error : $t")
-            }
+        val userFragment = UserFragment.setLogin(login)
 
-            override fun onResponse(call: Call<GetUserData>, response: Response<GetUserData>) {
-                if(response.isSuccessful){
-                    val user = response.body()!!
-
-                    //imgUserProfile.setImageURI(Uri.parse(user.avatar_url))
-
-                    txtUserId.text = user.login
-                    txtUserName.text = user.name
-                    txtUserDescription.text = user.bio
-                }
-            }
-        })
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.add(R.id.ctn_user_follower, userFragment)
+        transaction.commit()
     }
 
     private fun makeFollowers(login : String){
@@ -63,6 +50,7 @@ class GitFollowerActivity : AppCompatActivity() {
         rvMainGitRepo.adapter = adapter
 
         rvMainGitRepo.layoutManager = LinearLayoutManager(this)
+
         rvMainGitRepo.addItemDecoration(object : RecyclerView.ItemDecoration(){
             override fun getItemOffsets(
                 outRect: Rect,

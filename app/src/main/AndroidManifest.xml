@@ -13,8 +13,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".feather.git_follower.GitFollowerActivity"></activity>
         <activity android:name=".feather.git_repo.GitRepoActivity" />
-        <activity android:name=".sign_up.SignUpActivity" />
-        <activity android:name=".sign_in.SignInActivity">
+        <activity android:name=".feather.sign_up.SignUpActivity" />
+        <activity android:name=".feather.sign_in.SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

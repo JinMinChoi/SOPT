@@ -63,12 +63,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/ctnUserProfile"
+            <FrameLayout
+                android:id="@+id/ctn_user_follower"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <ImageView
+                <!--<ImageView
                     android:id="@+id/imgUserProfile"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
@@ -103,8 +103,8 @@
                     android:text="TextView"
                     android:layout_marginTop="10dp"
                     app:layout_constraintStart_toStartOf="@+id/txtUserName"
-                    app:layout_constraintTop_toBottomOf="@+id/txtUserName"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    app:layout_constraintTop_toBottomOf="@+id/txtUserName"/>-->
+            </FrameLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
